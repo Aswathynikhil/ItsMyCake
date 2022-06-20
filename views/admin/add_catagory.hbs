@@ -1,0 +1,44 @@
+<section class="add_catagory" style="background-color: rgba(255, 191, 191, 1);">
+    <div class="container-fluid ">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-8 col-lg-6 col-xl-4" style="margin-top: 50px;">
+                <h3 class="loginh3 text-center ">Add Catagory</h3>
+                <form action='/admin/add_catagory' method="post">
+                    <div class="form-outline mb-4 mt-5">
+                        <label class="form-label" for="form2Example22">Enter the catagory name</label>
+                        <input type="text" id="catagory_name" name="catagory_name"
+                            class="form-control form-control-lg" />
+                    </div>
+                    <div class="text-center text-lg-start mt-4 pt-2 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem; background-color: rgb(82, 10, 10); color: white;">
+                            Add</a>
+                        </button>
+                    </div>
+                </form>
+                <table class="table mt-5" id="categoryTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Category Name</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each catgory_names}}
+                        <tr>
+                            <td>{{this.catagory}}</td>
+                            <td class="td-icon ">
+
+                                <a href="/admin/delete_category/{{this._id}}" class="btn" style="color: black;"
+                                    onclick="return confirm('Are you want to delete{{this.catagory}}?')"><i
+                                        class='bx bxs-trash'></i></a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,158 @@
+<section class="section " style="background-color: rgba(249, 220, 220, 1); ">
+  <div class="container-fluid">
+    <div class="row   d-flex justify-content-center" >
+      <div class="col-md-8 col-lg-6 ">
+        <h3 class="loginh3 text-center"  >Add Products</h3>
+        <form action="/admin/add_product" method="post" enctype="multipart/form-data" class="addform "
+          style="padding: 50px;" id="addProduct-form">
+          <div class="row mb-3">
+            <label for="productName" class="col-sm-2 col-form-label">Product Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name"
+                required>
+            </div>
+          </div>
+
+           {{!-- <div class="row mb-3">
+            <label for="catagory" class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-10">
+              <select id="catagory" name="catagory" class="form-control ">
+                <option value="" disabled selected>Select Category</option>
+                
+                             {{#each result}}
+                             
+                            <option value="{{this.catagory}}">{{this.catagory}}</option>
+                            {{/each}}
+              </select>
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <label for="subcatagory" class="col-sm-2 col-form-label">Sub Category</label>
+            <div class="col-sm-10">
+              <select id="subcatagory" name="subcatagory" class="form-control">
+               <option value="" disabled selected >Select SubCategory</option>
+                            {{#each subCat}}
+                            <option value="{{this.subcatagory}}">{{this.subcatagory}}</option>
+                            {{/each}}
+              </select>
+            </div>
+          </div> --}}
+
+
+
+           <div class="row mb-3">
+            <label for="catagory" class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-10">
+              <select id="catagory" name="catagory" class="form-control "  onchange="getSubCategory(this);">
+                <option value="" disabled selected>Select Category</option>
+                
+                             {{#each result}}
+                             
+                            <option  value="{{this.catagory}}" id="{{this._id}}" >{{this.catagory}} </option>
+                             
+                            {{/each}}
+              </select>
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+          
+            <label for="subcatagory" class="col-sm-2 col-form-label">Sub Category</label>
+            <div class="col-sm-10">
+              <select id="subcatagory" name="subcatagory" class="form-control">
+               <option value="" disabled selected >Select SubCategory</option>
+             
+
+                              {{#each subCat}}
+                            <option value="{{this.subcatagory}}">{{this.subcatagory}}</option>
+  
+                                {{/each}}
+              </select>
+            </div>
+        
+          </div>
+
+           
+
+
+
+
+          <div class="row mb-3">
+            <label for="Description" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+
+              <input type="text" class="form-control" id="description" name="description" placeholder="Description"
+                required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="Description" class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="price" name="price" name="price" placeholder="Price"
+                required>
+            </div>
+          </div>
+
+
+          {{!-- <div class="row mb-3">
+            <label for="Product Weight" class="col-sm-2 col-form-label">Product Weight(kg)</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="product_weight" name="product_weight"
+                placeholder="Product Weight" required>
+            </div>
+          </div> --}}
+         <div class="row mb-3">
+            <label for="Discount" class="col-sm-2 col-form-label">Discount(%)</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="discount" name="discount" placeholder="Discount" required>
+            </div>
+          </div> 
+
+          <!-- File Button -->
+          <div class="row mb-3">
+            <label for="main_image" class="col-sm-2 col-form-label">Main_image</label>
+            <div class="col-sm-10">
+
+              <input id="main_image" name="image" class="form-control" type="file">
+            </div>
+          </div>
+          <div class="row mb-3">
+
+            <label for="auxiliary_image" class="col-sm-2 col-form-label">Auxiliary_Image</label>
+            <div class="col-sm-10">
+              <input id="auxiliary_images" name="image1" class="form-control" type="file">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+
+            <label for="auxiliary_image" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <input id="auxiliary_images" name="image1" class="form-control" type="file">
+            </div>
+          </div>
+
+               <div class="row mb-3">
+
+            <label for="auxiliary_image" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <input id="auxiliary_images" name="image1" class="form-control" type="file">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 offset-sm-2 d-flex justify-content-center">
+              <button type="submit" class="btn " style="background-color: rgb(68, 12, 12); color: white;">Add Product</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+
+</script>

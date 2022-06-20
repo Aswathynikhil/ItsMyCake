@@ -1,0 +1,91 @@
+<section class="viewusers" >
+  <div class="container">
+    <div class="row mt-5" style="width: 100%; ">
+
+      <table class="table-responsive mt-5" id="userTable">
+        <thead class="thead" style="background-color: rgb(55, 14, 14); color: white;">
+          <tr>
+
+       
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">Place</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each User}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phone}}</td>
+            <td>{{this.address}}</td>
+            <td>{{this.place}}</td>
+            <td>{{this.pincode}}</td>
+            <td>
+              {{!-- <a href="/admin/blockt-user/{{this._id}}" class="btn " style="color: black;"><i
+                  class='bx bx-block'></i></a> --}}
+
+              <div id="refresh" onClick="refreshPage()">
+                <!-- <button type="button" onClick="refreshPage()">Close</button> -->
+
+                {{#if block}}
+                <a onclick="unBlockUser('{{this._id}}')" class="btn btn-danger active" role="button"
+                  data-bs-toggle="button" aria-pressed="true">  <i class='bx bxs-user-x'></i></a>
+   
+                {{else}}
+                <a onclick="blockUser('{{this._id}}')" class="btn btn-success" role="button" data-bs-toggle="button">
+              <i class='bx bxs-user-check' ></i></a>
+           
+                {{/if}}
+              </div>
+             {{!-- <a href="/admin/delete_user/{{this._id}}" class="btn " style="color: black;"
+                onclick="return confirm('Are you want to delete{{this.name}}?')"><i class='bx bx-trash'></i></a> --}}
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    $("#userTable").DataTable();
+  });
+
+
+  function refreshPage() {
+    window.location.reload();
+  } 
+
+
+       function unBlockUser(proId) {
+            $.ajax({
+                url: '/admin/unBlockUser/' + proId,
+                method: 'get',
+                success: (response) => {
+                    if (response.status)
+                        alert(response)
+                }
+            })
+        }
+
+
+   function blockUser(proId) {
+            $.ajax({
+                url: '/admin/blockUser/' + proId,
+                method: 'get',
+                success: (response) => {
+                }
+            })
+        }
+
+</script>
+
+{{!-- Block UnBlock --}}
+ 
+    {{!-- Block UnBlock --}}

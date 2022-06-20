@@ -1,0 +1,175 @@
+<section>
+  <div class="container">
+
+
+
+
+    <div class="row">
+
+      <div class="col-md-8 mb-4 mt-5 ">
+        <div class="card mb-4">
+          <div class="card-header py-3  " style="background-color: rgb(72, 13, 13);color: white;">
+            <h5 class="mb-0">Shipping Address</h5>
+          </div>
+          <div class="card-body">
+            <form action="#" id="checkout-form">
+              <div class="row mb-4">
+                <div class="form-outline">
+                  <label class="form-label" for="form7Example1">Name</label>
+                  <input type="text" name="name" id="form7Example1" value="{{ userAddressDetails.address.name}}"
+                    class="form-control" />
+
+                </div>
+              </div>
+
+
+
+              <!-- Number input -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form7Example6">Phone</label>
+                <input type="number" name="phone" id="form7Example6" value="{{ userAddressDetails.address.phone}}"
+                  class="form-control" />
+              </div>
+
+
+
+              <!-- Text input -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form7Example4">House Name</label>
+                <input type="text" name="housename" id="housename" value="{{ userAddressDetails.address.housename}}"
+                  class="form-control" />
+
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form7Example4">Place</label>
+                <input type="text" name="place" id="place" value="{{ userAddressDetails.address.place}}"
+                  class="form-control" />
+
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form7Example4">Pincode</label>
+                <input type="text" name="pincode" id="pincode" value="{{ userAddressDetails.address.pincode}}"
+                  class="form-control" />
+
+              </div>
+              <input type="text" name="userId" id="" value="{{user._id}}" hidden>
+
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <div class="col-md-4 mb-4 mt-5">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0"><strong> Total &nbsp; &nbsp; &#x20b9 {{total.total}}.00</strong></h5>
+          </div>
+          <div class="card-body">
+
+            <h6>Select Payment Method</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="COD" name="payment-method" id="flexRadioDefault2"
+                checked />
+              <label class="form-check-label" for="flexRadioDefault1">Cash On Delivery</label>
+            </div>
+            <br>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="ONLINE" name="payment-method"
+                id="flexRadioDefault2" />
+              <label class="form-check-label" for="flexRadioDefault1">Online Payment</label>
+            </div>
+            <br><br>
+            <hr>
+
+
+            <div class="d-flex justify-content-center">
+              <button style="background-color: rgb(78, 5, 5);color: white; margin-top: 20px;" type="submit" class="btn">
+                Make purchase
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+
+</section>
+
+<script>
+  $("#checkout-form").submit((e) => {
+    e.preventDefault()
+    $.ajax({
+      url: '/place-order',
+      method: 'post',
+      data: $('#checkout-form').serialize(),
+      success: (response) => {
+       // alert('success')
+        if (response.codSuccess) {
+          alert('success')
+          location.href = '/order-success'
+        } else {
+          razorPayment(response)
+        }
+      }
+    })
+  })
+  function razorPayment(order) {
+    var options = {
+      "key": "rzp_test_tdZypZms8gT182", // Enter the Key ID generated from the Dashboard
+      "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      "currency": "INR",
+      "name": "MyCake",
+      "description": "Test Transaction",
+      "image": "https://example.com/your_logo",
+      "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      "handler": function (response) {
+       // alert(response.razorpay_payment_id);
+       // alert(response.razorpay_order_id);
+       // alert(response.razorpay_signature)
+
+        verifyPayment(response, order)
+      },
+      "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+      },
+      "notes": {
+        "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+        "color": "#5B0606"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+  }
+  function verifyPayment(payment, order) {
+    $.ajax({
+      url: '/verify-payment',
+      data: {
+        payment,
+        order
+      },
+      method: 'post',
+      success: (response) => {
+        if (response.status) {
+          location.href = '/order-success'
+        } else {
+          alert("Payment-failed")
+        }
+      }
+    })
+  }
+</script>

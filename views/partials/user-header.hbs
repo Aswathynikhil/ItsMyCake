@@ -1,0 +1,150 @@
+<header  >
+      {{!-- <title>Chaat Castle</title>
+    <link rel="icon" href="images/title-img.jpg" type="image/css"> --}}
+
+  <nav class="navbar  navbar-expand-lg navbar-dark fixed-top" id="nav">
+    <div class="container-fluid">
+      <a href="/">
+        <img src="/images/logo2.png" alt="images/logo2.png" style="height: 5rem; width: 9rem;" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 mx-auto " id="nav-list">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/user_products">PRODUCTS</a>
+            {{!-- <div class="dropdown show">
+              <a class="btn dropdown-toggle" style="color: white; font-size: 16px;" href="#" role="button" id="dropdownMenuLink"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                CAKES
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Cakes By Types</a>
+                <a class="dropdown-item" href="#">Cakes By Flavour</a>
+                <a class="dropdown-item" href="#">Cakes By Themes</a>
+                <a class="dropdown-item" href="#">Cakes By Occassion</a>
+              </div>
+            </div> --}}
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/aboutUs">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/contactUs">CONTACT US</a>
+          </li>
+
+    
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/cart"><i class='bx bxs-cart bx-flip-horizontal' style='color:#fcfbfb '; ></i> <span class="badge " style="background-color: rgb(67, 16, 16);" id="cart-count">{{cartCount}}</span></a>
+            
+          </li>
+        
+        </ul>
+        <div class="dropdown show" style="height: 35px;">
+          <a class="btn dropdown-toggle"
+            style="width: 159px; background-color:rgb(99, 13, 13) ;color: white; align-items: flex-end;" role="button"
+            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{#if user}}
+            {{user.name}}
+            {{else}}
+            Account
+            {{/if}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            {{#if user}}
+            <a class="dropdown-item" href="/user_profile/{{user._id}}">Profile</a>
+            <a class="dropdown-item" href="/orders-list">Order history</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+            {{else}}
+            <a class="dropdown-item" href="/user_login">Login</a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+</script>
+{{!-- $(document).ready(function(){
+$('.dropdown-submenu a.test').on("click", function(e){
+$(this).next('ul').toggle();
+e.stopPropagation();
+e.preventDefault();
+});
+}); --}}
+</script>
+
+{{!-- <div class="dropdown">
+  <button class="btn dropdown-toggle" style="color: white; font-size: 16px;" type="button"
+    data-bs-toggle="dropdown">CAKES
+    <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a tabindex="-1" href="#">HTML</a></li>
+    <li><a tabindex="-1" href="#">CSS</a></li>
+    <li class="dropdown-submenu">
+      <a class="test" tabindex="-1" href="#">Cakes By Types<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+        <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+        <li class="dropdown-submenu">
+          <a class="test" href="#">Another dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">3rd level dropdown</a></li>
+            <li><a href="#">3rd level dropdown</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a class="test" tabindex="-1" href="#">Cakes By Types<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+        <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+        <li class="dropdown-submenu">
+          <a class="test" href="#">Another dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">3rd level dropdown</a></li>
+            <li><a href="#">3rd level dropdown</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a class="test" tabindex="-1" href="#">Cakes By Types<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+        <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+        <li class="dropdown-submenu">
+          <a class="test" href="#">Another dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">3rd level dropdown</a></li>
+            <li><a href="#">3rd level dropdown</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a class="test" tabindex="-1" href="#">Cakes By Types<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+        <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+        <li class="dropdown-submenu">
+          <a class="test" href="#">Another dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">3rd level dropdown</a></li>
+            <li><a href="#">3rd level dropdown</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+--}}

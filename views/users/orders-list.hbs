@@ -1,0 +1,59 @@
+
+<section class="section" style="background-color: rgba(255, 191, 191, 1); height: 100vh;">
+  <div class="container">
+    <div class="row mt-5 ">
+      <div class="table-responsive">
+      <table class="table mt-5 "  id="orderTable">
+        <thead class="headt text-center" style="background-color: rgb(49, 9, 9); color: white;">
+          <tr>
+            <th scope="col">Date</th>
+
+            <th scope="col">Address</th>
+            <th scope="col">Total Amount</th>
+
+
+            <th scope="col">Payment</th>
+            <th scope="col">Status</th>
+            <th scope="col">products</th>
+
+            {{!-- <th scope="col">Options</th> --}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each orders}}
+
+          <tr class="text-center">
+            <td>{{this.Date}}</td>
+
+
+            <td>{{this.address.housename}},{{this.address.place}},{{this.address.pincode}}</td>
+
+            <td>{{this.total}}</td>
+
+
+            <td>{{this.paymentMethod}}</td>
+            <td>{{this.status}}</td>
+            {{#each this.product}}
+            <td>{{this.product_name}}
+              <img src="/product_Images/{{this.allImages.[0].main_i}}" alt=""
+                style="height: 50px; width:50px; margin-bottom: 10px;">
+            </td>
+               <br>
+
+            {{/each}}
+
+          
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    $("#orderTable").DataTable();
+  });
+</script>

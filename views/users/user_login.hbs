@@ -1,0 +1,40 @@
+<section class="user-login " style="background-color: rgba(255, 191, 191, 1);">
+  <div class="container py-5 ">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="images/login_4.png" class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <h3 class="loginh3 text-center"
+          style="margin-top: 100px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6);">
+          Sign in</h3>
+        <form action="/user_login" method="post">
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example11" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6);">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email id"
+              required />
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label " for="form2Example22" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6);">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password"
+              required />
+          </div>
+          <div class="text-center pt-1 mb-5 pb-1">
+            <button class="btn btn-block fa-lg gradient-custom-2 mb-3" style="color: white; width: 150px;"
+              type="submit">Login</button>
+            {{#if message_login}}
+            <p class="error" style="color: red;">{{message_login}}</p>
+            {{/if}}
+            <br>
+            <a class="text-muted " style="text-decoration: none; ;" href="/forget_password">Forgot password?</a>
+          </div>
+          <div class="d-flex align-items-center justify-content-center pb-4">
+            <a class="mb-0 me-2"
+              style="text-decoration: none; color: black; font-weight: 500; margin-left: 10px; color: rgb(52, 9, 9);"
+              href="/user_signup">Don't have an account?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

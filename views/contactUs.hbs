@@ -1,0 +1,65 @@
+<section class="contact"  style="background-color: rgba(255, 191, 191, 1); ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="contactus_heading"
+                    style="font-family:Georgia, 'Times New Roman', Times, serif, Times, serif ; text-align: center;margin-top: 150px; color: rgb(72, 13, 13);margin-bottom: 40px;">
+                    Contact Us</h1>
+                <div class="contact_map d-flex justify-content-center">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125218.42895681533!2d75.7407733067305!3d11.255826554589143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65bbe359ced81%3A0xc17c381f72b87e02!2sHiLITE%20Mall!5e0!3m2!1sen!2sin!4v1652867171629!5m2!1sen!2sin"
+                        width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="row  d-flex justify-content-center" style="margin-top: 40px;">
+
+                    <div class="main  " style="width: 900px;  font-family: cursive;">
+                        <p class="text-center w-responsive mx-auto mb-5" style="font-size: 15px; font-weight: 400;">Do you have any questions? Please do not
+                            hesitate to contact us directly. Our team will come back to you within
+                            a matter of hours to help you.</p>
+
+                        <form action="/contactUs" method="post" role="form" class="mail-form" id="mail_form"
+                            name="google-sheet">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" name="name" class="form-control" id="name" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name">Your Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Subject</label>
+                                <input type="text" class="form-control" name="subject" id="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Message</label>
+                                <textarea class="form-control" name="message" id="message" rows="10"
+                                    required></textarea>
+                            </div>
+                            <div class="text-center"><button type="submit" class="btn"
+                                    style="background-color: rgb(92, 24, 24); color: white; margin: 10px;">Send
+                                    Message</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqpkElt0jRWV_W2xxk1-XJncz6nOKlkyAntPzJp8U1H1EsYOEO/exec'
+    const form = document.forms['google-sheet']
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => alert('Contact Form Submitted Successfully') ? "" : location.reload())
+            .catch(error => console.error('Error!', error.message))
+    })
+</script>

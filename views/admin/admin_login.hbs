@@ -1,0 +1,40 @@
+<section class="admin-login" style="background-color: rgba(255, 191, 191, 1); height:86vh">
+    <div class="container-fluid ">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                    class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <h3 class="loginh3 text-center">Admin Login</h3>
+                <form action="/admin_login"  method="post">
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form3Example3">Username</label>
+                        <input type="text" id="username" name="username" class="form-control form-control-lg"
+                            placeholder="Enter username" />
+
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="form3Example4">Password</label>
+                        <input type="password" id="password" name="password" class="form-control form-control-lg"
+                            placeholder="Enter password" />
+
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-lg"style="padding-left: 2.5rem; padding-right: 2.5rem; background-color: rgb(82, 10, 10); color: white;">
+                        Login</a>
+                        </button>
+                    </div>
+                  {{#if LoginErr}}
+                   <p class="error" style="color: red;">{{loginErr}}</p> 
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,132 @@
+<section class="section" style="background-color: rgba(249, 220, 220, 1);">
+  <div class="container-fluid ">
+    <div class="row d-flex justify-content-center ">
+      <div class="col-md-8 col-lg-6 ">
+        <h3 class="loginh3 text-center" style="margin-top:50px ;">Edit Products</h3>
+        <form action="/admin/edit_product/{{editProduct._id}}" method="post" enctype="multipart/form-data"
+          class="addform " style="padding: 50px;" id="editProduct-form">
+          <div class="row mb-3">
+            <label for="productName" class="col-sm-2 col-form-label">Product Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name"
+                value="{{editProduct.product_name}}" required>
+            </div>
+          </div>
+
+
+            <div class="row mb-3">
+            <label for="catagory" class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-10">
+              <select id="catagory" name="catagory" class="form-control" >
+
+                       {{!-- <option value="{{editProduct.subCatagory.subcatagory}}">{{editProduct.subCatagory.subcatagory}}</option>
+                        {{#each subcatdetails}}
+                            <option value="{{this.subcatagory}}">{{this.subcatagory}}</option>
+                            {{/each}} --}}
+                            <option value="{{editProduct.catagory.catagory}}">{{editProduct.catagory.catagory}}</option>
+                             {{#each catagoryDetails}}
+                            <option value="{{this.catagory}}">{{this.catagory}}</option>
+                            {{/each}}
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="subcatagory" class="col-sm-2 col-form-label">Sub Category</label>
+            <div class="col-sm-10">
+              <select id="subcatagory" name="subcatagory" class="form-control" >
+
+                       <option value="{{editProduct.subCatagory.subcatagory}}">{{editProduct.subCatagory.subcatagory}}</option>
+                        {{#each subcatdetails}}
+                            <option value="{{this.subcatagory}}">{{this.subcatagory}}</option>
+                            {{/each}}
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="Description" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+
+              <input type="text" class="form-control" id="description" name="description" placeholder="Product Name"
+                value="{{editProduct.description}}" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="Price" class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="price" name="price" name="price" placeholder="Price"
+                value="{{editProduct.price}}" required>
+            </div>
+          </div>
+
+
+{{!-- 
+          <div class="row mb-3">
+            <label for="Product Weight" class="col-sm-2 col-form-label">Product Weight(kg)</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="product_weight" name="product_weight"
+                placeholder="Product Weight" value="{{editProduct.product_weight}}" required>
+            </div>
+          </div> --}}
+
+        <div class="row mb-3">
+            <label for="Discount" class="col-sm-2 col-form-label">Discount(%)</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="discount" name="discount" placeholder="Discount"
+                value="{{editProduct.discount}}" required>
+            </div>
+          </div> 
+
+          <!-- File Button -->
+          <div class="row mb-3">
+
+            <label for="main_image" class="col-sm-2 col-form-label">main_image</label>
+            <div class="col-sm-10">
+              <img src="/product_Images/{{editProduct.allImages.[0].main_i}}" alt="" style="height: 50px; width:50px; margin-bottom: 10px;">
+              <input id="imageview" name="image" class="form-control" type="file" value="{{editProduct.allImages.[0].main_i}}" >
+            </div>
+          </div>
+          
+          <div class="row mb-3">
+
+            <label for="auxiliary_image" class="col-sm-2 col-form-label">auxiliary_image</label>
+            <div class="col-sm-10">
+              <img src="/product_Images/{{editProduct.allImages.[0].next_i}}" alt="" style="height: 50px; width:50px; margin-bottom: 10px;">
+              <input id="imageview" name="image1" class="form-control" type="file" value="{{editProduct.allImages.[0].next_i}}" >
+            </div>
+          </div>
+
+         <div class="row mb-3">
+
+            <label for="auxiliary_image" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <img src="/product_Images/{{editProduct.allImages.[0].next_i_1}}" alt="" style="height: 50px; width:50px; margin-bottom: 10px;">
+              <input id="imageview" name="image1" class="form-control" type="file" value="{{editProduct.allImages.[0].next_i_1}}" >
+            </div>
+          </div>
+
+          
+         <div class="row mb-3">
+
+            <label for="auxiliary_image" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <img src="/product_Images/{{editProduct.allImages.[0].next_i_2}}" alt="" style="height: 50px; width:50px; margin-bottom: 10px;">
+              <input id="imageview" name="image1" class="form-control" type="file" value="{{editProduct.allImages.[0].next_i_2}}" >
+            </div>
+          </div>
+
+
+          <div class="row ">
+            <div class="col-sm-10 offset-sm-2 d-flex justify-content-center" >
+              <button type="submit" class="btn " style=" background-color: rgb(50, 9, 9); color: white; margin-top: 20px;">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+

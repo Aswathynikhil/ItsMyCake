@@ -1,0 +1,46 @@
+<section class="add_carousal" style="background-color: rgba(255, 191, 191, 1); height: 100vh;">
+    <div class="container-fluid ">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-8 col-lg-6 col-xl-4" style="margin-top: 50px;">
+                <h3 class="loginh3 text-center ">Add Carousal Image</h3>
+                <form action='/admin/add_carousal' method="post" enctype="multipart/form-data">
+                    <div class="form-outline mb-4 mt-5">
+                        <label class="form-label" for="form2Example22">Upload Image</label>
+                        {{!-- <input type="text" id="catagory_name" name="catagory_name"
+                            class="form-control form-control-lg" /> --}}
+                             <input id="carousal_image" name="image" class="form-control" type="file">
+                    </div>
+                    <div class="text-center text-lg-start mt-4 pt-2 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem; background-color: rgb(82, 10, 10); color: white;">
+                            Add</a>
+                        </button>
+                    </div>
+                </form>
+                <table class="table mt-5" id="categoryTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Images</th>
+                            <th scope="col"></th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each carousal_images}}
+                        <tr>
+                            <td><img style="height: 50px; width: 50px;" src="/product_Images/{{this.image}}" alt=""></td>
+                            <td class="td-icon ">
+
+                                <a href="/admin/delete_carousal/{{this._id}}" class="btn" style="color: black;"
+                                    onclick="return confirm('Are you want to delete{{this.image}}?')"><i
+                                        class='bx bxs-trash'></i></a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,73 @@
+<section class="section" style="background-color: rgba(255, 191, 191, 1); ">
+  <div class="row">
+    <div class="col-12 col-md-12 ">
+      <div class="offcanvas offcanvas-start w-20" tabindex="-1" id="offcanvas" data-bs-keyboard="false"
+        data-bs-backdrop="false" style="margin-top: 95px; width: 200px; background-color: rgba(255, 191, 191, 1);">
+        <div class="offcanvas-header">
+          {{!-- <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Cakes Available</h6> --}}
+          <a class="dropdown-item1" href="/user_products" style="text-decoration: none; color:brown"> Cakes
+            Available
+          </a>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="dropdown show ">
+          {{#each categories}}
+
+          <a class="btn" href="/find-subcategories/{{this._id}}"
+            style="background-color: rgba(255, 191, 191, 1); color: black ; border: none;margin-top: 30px;"
+            type="submit"> {{this.catagory}}</a>
+
+
+          {{/each}}
+        </div>
+
+      </div>
+
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col min-vh-100 p-4">
+            <!-- toggler -->
+            <button class="btn float-end " data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+              <p class="menu mt-4" style="color: rgb(57, 5, 5);">Menu</p>
+              {{!-- <i class='bx bx-right-arrow-alt fs-3 mt-4' data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvas"></i>
+              --}}
+            </button>
+
+
+            <div class="d-flex justify-content-center mt-5">
+              {{#each subCat}}
+              <h1 class="sub" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6); ">{{this.subcatagory}}</h1>
+              {{/each}}
+            </div>
+
+
+            <div class="container-fluid mt-5">
+              <div class="row mr-3">
+
+                <span class="subc" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6);">{{subcategory.subcatagory}}</span>
+
+                {{#each products}}
+                     <div class="col-12 col-sm-6 col-md-4 col-lg-6 col-xl-3 p-3 d-flex justify-content-center">
+                  <div class="card" style="width: 18rem; height: 25rem; background-image: linear-gradient(135deg, #FFAA85 10%, #B3315F 100%);">
+                    <a href="/product_details/{{this._id}}"><img src="/product_Images/{{this.allImages.[0].main_i}}"
+                        class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                      <h5 class="card-title " style="font-size:20px ; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, serif;color: rgb(40, 6, 6);">{{this.product_name}}</h5>
+                      <h6 class="price" style="color: rgb(50, 10, 10); font-weight: 900;">Rs.{{this.price}}</h6>
+
+
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

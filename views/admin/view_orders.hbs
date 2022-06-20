@@ -1,0 +1,67 @@
+<section class="section" >
+  <div class="container" >
+    <div class="row mt-5 " style="width: 100%;">
+      <table class="table-responsive mt-5" id="orderTable">
+        <thead class="thead" style="background-color: rgb(55, 14, 14); color: white;">
+          <tr class="text-center">
+            <th scope="col">Date</th>
+
+            <th scope="col">Address</th>
+            <th scope="col">Total Amount</th>
+
+
+            <th scope="col">Payment</th>
+
+            <th scope="col">products</th>
+            <th scope="col">Status</th>
+            <th scope="col">Options</th>
+
+
+            {{!-- <th scope="col">Options</th> --}}
+          </tr>
+        </thead>
+        <tbody >
+          {{#each orders}}
+
+          <tr class="text-center">
+            <td >{{this.Date}}</td>
+
+
+            <td>{{this.address.housename}},<br>{{this.address.place}},{{this.address.pincode}}</td>
+
+            <td>{{this.total}}</td>
+
+
+            <td>{{this.paymentMethod}}</td>
+            {{#each this.product}}
+            <td>{{this.product_name}}<br>
+              <img src="/product_Images/{{this.allImages.[0].main_i}}" alt=""
+                style="height: 50px; width:50px; margin-bottom: 10px;">
+            </td>
+
+
+            {{/each}}
+         
+            <td>{{this.status}}</td>
+            <td><a href="/admin/orderstatus-shipped/{{this._id}}" class="btn   btn-block  "
+                style="font-size:x-small; width:90px;color: white;background-color: rgb(60, 14, 14);" >
+                Shipped
+              </a>
+              <a href="/admin/orderstatus-delivered/{{this._id}}" class="btn   btn-block mt-3 "
+                style="font-size:x-small;width:90px;color: white; background-color: rgb(71, 9, 9);" type="submit">
+                Delivered
+              </a>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</section>
+<script>
+  $(document).ready(function () {
+    $("#orderTable").DataTable();
+  });
+</script>
