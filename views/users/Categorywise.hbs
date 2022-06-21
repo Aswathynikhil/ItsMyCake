@@ -4,13 +4,13 @@
 
 
 
-         <div class="offcanvas offcanvas-start w-20" tabindex="-1" id="offcanvas" data-bs-keyboard="false"
+      <div class="offcanvas offcanvas-start w-25" tabindex="-1" id="offcanvas" data-bs-keyboard="false"
         data-bs-backdrop="false" style="margin-top: 95px; width: 200px; background-color: rgba(255, 191, 191, 1);">
         <div class="offcanvas-header">
           {{!-- <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Cakes Available</h6> --}}
-         <h3> <a class="dropdown-item1" href="/user_products" style="text-decoration: none; color:brown; ;"> Cakes
-            Available
-          </a></h3>
+          <h3> <a class="dropdown-item1" href="/user_products" style="text-decoration: none; color:brown; ;"> Cakes
+              Available
+            </a></h3>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
@@ -20,14 +20,15 @@
 
         <div class="dropdown show ">
           {{#each categories}}
-          {{!-- <a class="btn btn-secondary dropdown-toggle dropright" href="/find-subcategories/{{this._id}}" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown"  type="submit"
+          {{!-- <a class="btn btn-secondary dropdown-toggle dropright" href="/find-subcategories/{{this._id}}"
+            role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" type="submit"
             style="background-color: rgba(255, 191, 191, 1); color: black ; border: none;margin-top: 30px;">
             {{this.catagory}}
           </a> --}}
-         
-          <a class="btn" href="/find-subcategories/{{this._id}}" style="background-color: rgba(255, 191, 191, 1); color: black ; border: none;margin-top: 30px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6); font-size: 20px;"
-          type="submit"> <i class='bx bxs-chevrons-right'></i>{{this.catagory}}</a>
+
+          <a class="btn" href="/find-subcategories/{{this._id}}"
+            style="background-color: rgba(255, 191, 191, 1); color: black ; border: none;margin-top: 30px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6); font-size: 20px;"
+            type="submit"> <i class='bx bxs-chevrons-right'></i>{{this.catagory}}</a>
 
 
           {{!-- <div class="dropdown-menu " aria-labelledby="dropdownMenuLink">
@@ -36,7 +37,7 @@
             {{/each}}
           </div> --}}
           {{/each}}
-         </div>
+        </div>
 
 
 
@@ -61,27 +62,31 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light " style="   background-color: rgba(255, 191, 191, 1); color: rgb(89, 16, 16); width: 1000px;">
-  <div class="container-fluid">
-  
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="width:20px;height: 20px;"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {{#each subCat}}
-        <li class="nav-item">
-          {{!-- <a class="btn" aria-current="page" href="/find-subcategory-products/{{this.id}}" type="submit">{{this.subcatagory}}</a> --}}
-              <a class="btn" href="/find-subcategory-products/{{this._id}}" style="background-color: rgba(255, 191, 191, 1); color: black ; border: none;margin-top: 30px;"
-          type="submit"> {{this.subcatagory}}</a>
-        </li>
-        {{/each}}
-        
-      </ul>
-   
-    </div>
-  </div>
-</nav>
+            <nav class="navbar navbar-expand-lg navbar-light "
+              style="   background-color: rgba(255, 191, 191, 1); color: rgb(89, 16, 16); ">
+              <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                  aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon" style="width:20px;height: 20px;"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {{#each subCat}}
+                    <li class="nav-item">
+                      {{!-- <a class="btn" aria-current="page" href="/find-subcategory-products/{{this.id}}"
+                        type="submit">{{this.subcatagory}}</a> --}}
+                      <a class="btn" href="/find-subcategory-products/{{this._id}}"
+                        style="background-color: rgba(255, 191, 191, 1); color: black ; border: none;margin-top: 30px;"
+                        type="submit"> {{this.subcatagory}}</a>
+                    </li>
+                    {{/each}}
+
+                  </ul>
+
+                </div>
+              </div>
+            </nav>
 
 
 
@@ -98,12 +103,14 @@
                   style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight: 600;color: brown;">
                   Our Cakes</h2> --}}
                 {{#each product}}
-                    <div class=" col-lg-3 col-md-12  mb-4 d-flex justify-content-center">
-                  <div class="card" style=" background-image: linear-gradient(135deg, #FFAA85 10%, #B3315F 100%);">
+                <div class=" col-lg-3 col-md-12  mb-4 d-flex justify-content-center">
+                  <div class="card" style="background-image: linear-gradient(135deg, #FFAA85 10%, #B3315F 100%);">
                     <a href="/product_details/{{this._id}}"><img src="/product_Images/{{this.allImages.[0].main_i}}"
                         class="card-img-top" alt="..."> </a>
                     <div class="card-body">
-                      <h5 class="card-title " style="font-size:20px ; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, serif;color: rgb(40, 6, 6);">{{this.product_name}}</h5>
+                      <h5 class="card-title "
+                        style="font-size:20px ; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, serif;color: rgb(40, 6, 6);">
+                        {{this.product_name}}</h5>
                       <h6 class="price" style="color: rgb(50, 10, 10); font-weight: 900;">Rs.{{this.price}}</h6>
 
 
