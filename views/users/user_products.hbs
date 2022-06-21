@@ -37,14 +37,14 @@
           
             </button>
 
-            <div class="container-fluid">
+            <div class="container-fluid py-5">
               <div class="row ">
                 <h2 class="heading_cake mt-5 text-center p-5"
                   style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6);">
                   Our Cakes</h2>
                 {{#each products}}
-                <div class="col-12 col-sm-6 col-md-4 col-lg-6 col-xl-3 p-3 d-flex justify-content-center">
-                  <div class="card" style="width: 18rem; height: 25rem;background-image: linear-gradient(135deg, #FFAA85 10%, #B3315F 100%);">
+                <div class="col-lg-3 col-md-12 mb-4 d-flex justify-content-center">
+                  <div class="card" style="background-image: linear-gradient(135deg, #FFAA85 10%, #B3315F 100%);">
                     <a href="/product_details/{{this._id}}"><img src="/product_Images/{{this.allImages.[0].main_i}}"
                         class="card-img-top" alt="..."> </a>
                     <div class="card-body">

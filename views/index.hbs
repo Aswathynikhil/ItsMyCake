@@ -2,7 +2,7 @@
 
 <section class="section" style="background-color: rgba(255, 191, 191, 1);">
   <div class="row">
-    <div class=" col-12 col-md-12" style="margin-top:-60px;">
+    <div class=" col-md-12" style="margin-top:-60px;">
 
 
       <div id="carouselExampleControls" class="carousel slide " style="margin-top: 90px;" data-bs-ride="carousel" data-transition="slide"  data-interval="5000">
@@ -55,12 +55,12 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid py-5">
     <div class="row">
       {{#each products}}
-      <div class="col-12 col-sm-6 col-md-4 col-lg-6 col-xl-3 p-3 d-flex justify-content-center">
+      <div class=" col-lg-3 col-md-12  mb-4 d-flex justify-content-center">
         <div class="card"
-          style="width: 18rem; height: 25rem; background-image: linear-gradient(135deg, #FFAA85 10%, #B3315F 100%);">
+          style="background-image: linear-gradient(135deg, #FFAA85 10%, #B3315F 100%);">
           <a href="/product_details/{{this._id}}"><img src="/product_Images/{{this.allImages.[0].main_i}}"
               class="card-img-top" alt="..."> </a>
           <div class="card-body">

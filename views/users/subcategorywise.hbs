@@ -5,18 +5,19 @@
         data-bs-backdrop="false" style="margin-top: 95px; width: 200px; background-color: rgba(255, 191, 191, 1);">
         <div class="offcanvas-header">
           {{!-- <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Cakes Available</h6> --}}
-          <a class="dropdown-item1" href="/user_products" style="text-decoration: none; color:brown"> Cakes
+       <h3> <a class="dropdown-item1" href="/user_products" style="text-decoration: none; color:brown; ;"> Cakes
             Available
-          </a>
+          </a></h3>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
         <div class="dropdown show ">
           {{#each categories}}
 
-          <a class="btn" href="/find-subcategories/{{this._id}}"
-            style="background-color: rgba(255, 191, 191, 1); color: black ; border: none;margin-top: 30px;"
-            type="submit"> {{this.catagory}}</a>
+            
+          <a class="btn" href="/find-subcategories/{{this._id}}" style="background-color: rgba(255, 191, 191, 1); color: black ; border: none;margin-top: 30px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: rgb(40, 6, 6); font-size: 20px;"
+          type="submit"> <i class='bx bxs-chevrons-right'></i>{{this.catagory}}</a>
+
 
 
           {{/each}}
